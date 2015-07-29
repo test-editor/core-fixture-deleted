@@ -19,6 +19,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -27,7 +28,12 @@ import org.junit.Test;
  */
 public class SWTBotFixtureTest {
 
-	@Test
+	/**
+	 * TODO: this test does not test anything. The variable {@code runningApp}
+	 * is never set to true so the method {@link SwtBotFixture#waitUntilPreviousLaunchIsFinished()}
+	 * never runs into the while loop.
+	 */
+	@Test @Ignore
 	public void testMarkForRunningApplication() throws Exception {
 		final Set<String> monitor = new HashSet<String>();
 		Runnable firstLaunch = new Runnable() {
