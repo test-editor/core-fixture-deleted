@@ -9,9 +9,6 @@
  * Signal Iduna Corporation - initial API and implementation
  * akquinet AG
  *******************************************************************************/
-/**
- * 
- */
 package org.testeditor.fixture.swing;
 
 import java.awt.Component;
@@ -37,6 +34,7 @@ import org.fest.swing.fixture.JTextComponentFixture;
 import org.fest.swing.launcher.ApplicationLauncher;
 import org.testeditor.fixture.core.elementlist.ElementListService;
 import org.testeditor.fixture.core.exceptions.ElementKeyNotFoundException;
+import org.testeditor.fixture.core.interaction.FixtureMethod;
 import org.testeditor.fixture.core.utils.ExceptionUtils;
 
 /**
@@ -91,7 +89,7 @@ public class SwingFixture {
 	 * 
 	 * @param path
 	 */
-
+	@FixtureMethod
 	public boolean startApplication(final String path) {
 		startApplicationThread(path, null, Thread.currentThread().getContextClassLoader());
 		return true;
@@ -103,6 +101,7 @@ public class SwingFixture {
 	 * @param args2
 	 * @param cl
 	 */
+	// TODO is this method a @FixtureMethod ?
 	public void startApplicationThread(final String path, final String[] args2, ClassLoader cl) {
 		thread = new Thread() {
 
@@ -128,6 +127,7 @@ public class SwingFixture {
 	 * Stops running AUT.
 	 * 
 	 */
+	@FixtureMethod
 	public boolean stopApplication() {
 		robot.cleanUp();
 		return true;
@@ -165,6 +165,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 *            Key of the Component in element list
 	 */
+	@FixtureMethod
 	public boolean insertIntoTextField(String elementListKey, String text) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -183,6 +184,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 *            Key of the Component in element list
 	 */
+	@FixtureMethod
 	public boolean deleteTextField(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -201,6 +203,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 * @return
 	 */
+	@FixtureMethod
 	public String getTextFromTextField(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		String result = null;
@@ -219,6 +222,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 *            Key of the Component in element list
 	 */
+	@FixtureMethod
 	public boolean clickButton(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -239,6 +243,7 @@ public class SwingFixture {
 	 * @param item
 	 *            name of the item
 	 */
+	@FixtureMethod
 	public boolean selectComboBoxItemByName(String elementListKey, String item) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -262,6 +267,7 @@ public class SwingFixture {
 	 * @param index
 	 *            index of the item
 	 */
+	@FixtureMethod
 	public boolean selectComboBoxItemById(String elementListKey, int index) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -283,6 +289,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 *            Key of the Component in element list
 	 */
+	@FixtureMethod
 	public boolean clearSelectionComboBox(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -305,6 +312,7 @@ public class SwingFixture {
 	 *            Key of the Component in element list
 	 * @return text of the selected Item
 	 */
+	@FixtureMethod
 	public String getSelectedComboBoxItemText(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		String result = null;
@@ -326,6 +334,7 @@ public class SwingFixture {
 	 *            Key of the Component in element list
 	 * @return id of the selected Item
 	 */
+	@FixtureMethod
 	public int getSelectedComboBoxItemId(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		int result = -2;
@@ -346,6 +355,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 *            Key of the Component in element list
 	 */
+	@FixtureMethod
 	public boolean checkRadioButton(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		LOGGER.debug("elementListKey: " + elementListKey);
@@ -365,6 +375,7 @@ public class SwingFixture {
 	 * 
 	 * @param elementListKey
 	 */
+	@FixtureMethod
 	public boolean uncheckRadioButton(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		LOGGER.debug("elementListKey: " + elementListKey);
@@ -386,6 +397,7 @@ public class SwingFixture {
 	 *            Key of the Component in element list
 	 * @return boolean State of the radioButton
 	 */
+	@FixtureMethod
 	public boolean isCheckedRadioButton(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		boolean result = false;
@@ -404,6 +416,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 *            Key of the Component in element list
 	 */
+	@FixtureMethod
 	public boolean checkCheckBox(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -422,6 +435,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 *            Key of the Component in element list
 	 */
+	@FixtureMethod
 	public boolean uncheckCheckBox(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -441,6 +455,7 @@ public class SwingFixture {
 	 *            Key of the Component in element list
 	 * @return boolean state of the checkBox
 	 */
+	@FixtureMethod
 	public boolean isCheckedCheckBox(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		boolean result = false;
@@ -461,6 +476,7 @@ public class SwingFixture {
 	 * @param Id
 	 *            index from the Row
 	 */
+	@FixtureMethod
 	public boolean selectTableRowById(String elementListKey, int Id) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -487,6 +503,7 @@ public class SwingFixture {
 	 * @param column
 	 * @return if true or false
 	 */
+	@FixtureMethod
 	public boolean checkTableCellValue(String elementListKey, String value, String column) {
 		String locator = getLocatorFromElementList(elementListKey);
 		int colLocator = Integer.parseInt(getLocatorFromElementList(column));
@@ -512,6 +529,7 @@ public class SwingFixture {
 	 * @param Id
 	 *            index from the Row
 	 */
+	@FixtureMethod
 	public boolean doubleClickTableRowById(String elementListKey, int Id) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -532,6 +550,7 @@ public class SwingFixture {
 	 *            Key of the Component in element list
 	 * @return int Index of the selection
 	 */
+	@FixtureMethod
 	public int getSelectedTableRowIndex(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		int result = -2;
@@ -550,6 +569,7 @@ public class SwingFixture {
 	 * @param elementListKey
 	 *            Key of the Component in element list
 	 */
+	@FixtureMethod
 	public boolean doubleClickComponent(String elementListKey) {
 		String locator = getLocatorFromElementList(elementListKey);
 		try {
@@ -568,6 +588,7 @@ public class SwingFixture {
 	 * @param milliSeconds
 	 *            milliseconds to wait
 	 */
+	@FixtureMethod
 	public boolean waitMilliSeconds(int milliSeconds) {
 		try {
 			if (milliSeconds > 0) {
@@ -588,6 +609,7 @@ public class SwingFixture {
 	 *            Key of the Component in element list
 	 * @return
 	 */
+	@FixtureMethod
 	public boolean isElementEnabled(String elementListKey) {
 		boolean result = false;
 		try {
@@ -608,6 +630,7 @@ public class SwingFixture {
 	 *            text to compare
 	 * @return boolean Status of consent
 	 */
+	@FixtureMethod
 	public boolean checkIfTextEquals(String elementListKey, String text) {
 		return (text.equals(getTextFromTextField(elementListKey)));
 	}
@@ -621,6 +644,7 @@ public class SwingFixture {
 	 *            text to compare
 	 * @return boolean Status of non-compliance
 	 */
+	@FixtureMethod
 	public boolean checkIfTextNotEquals(String elementListKey, String text) {
 		return !(text.equals(getTextFromTextField(elementListKey)));
 	}
@@ -634,6 +658,7 @@ public class SwingFixture {
 	 *            text to compare
 	 * @return boolean Status of consent
 	 */
+	@FixtureMethod
 	public boolean checkIfSelectedItemIs(String elementListKey, String text) {
 		LOGGER.debug("ComboBox: " + getSelectedComboBoxItemText(elementListKey));
 		LOGGER.debug("Vorgegebener Text: " + text);
@@ -649,7 +674,9 @@ public class SwingFixture {
 	 *            text to compare
 	 * @return boolean Status of non-compliance
 	 */
+	@FixtureMethod
 	public boolean checkIfSelectedItemIsNot(String elementListKey, String text) {
 		return !(text.equals(getSelectedComboBoxItemText(elementListKey)));
 	}
+
 }
