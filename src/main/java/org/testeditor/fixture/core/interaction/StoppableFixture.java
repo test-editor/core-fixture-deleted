@@ -25,5 +25,5 @@ public interface StoppableFixture {
 	 * 
 	 * @return <code>true</code> on success; <code>false</code> otherwise
 	 */
-	boolean tearDown();
+	void tearDown();
 }
